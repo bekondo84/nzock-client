@@ -91,11 +91,11 @@ export default class LoginView extends Vue {
 
 .cadre {
   width: 450px;
-  height: 600px;
+  height: 550px;
   background: #fff;
   border: 2px solid #07569B;
   box-shadow: #000 10 10;
-  padding: 50px;
+  padding: 25px;
   border-radius: 25px;
 }
 
@@ -103,13 +103,14 @@ export default class LoginView extends Vue {
   height: 100px;
   width: 100%;
   background-image: url(../assets/ff.png);
-  background-size: 100%;
+  background-size: 90%;
   background-position: center;
 }
 
 .card-header {
   color: #000;
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 label {
