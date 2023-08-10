@@ -1,0 +1,98 @@
+<template>
+  <div class="localized">   
+     <v-textarea
+         variant="underlined"
+         :label="field.label"
+         v-model="value"
+         @input="inputValue"
+         :readonly="readOnly"
+         auto-grow>
+      </v-textarea>
+       <div class="dropdown">
+         <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+           {{ key }} <i class="fa-solid fa-globe"></i>
+         </button>
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li v-for="key in keys" :key="key"><a class="dropdown-item"  @click="setLang(key)">{{key}}</a></li>            
+         </ul>
+      </div>
+  </div>
+</template>
+<script lang="ts">
+import RestService, { corePlugin } from '@/services/restService';
+import { Options, Vue } from 'vue-class-component';
+
+const restService = new RestService();
+
+@Options({
+   props: {
+      field: Object,
+      readOnly: Boolean,
+      item: Object,
+   }, data: function() {
+      return {
+         keys: [],     
+         key: null , 
+         value: null   
+      }
+   }, methods: {
+      inputValue(event: any) {
+         if (this.item != null ) {
+            this.item[this.field.fieldName][this.key].value = event.target.value;
+         }
+      }, async setLang(key: string) {
+          try{
+            this.key = key;
+            if (this.item[this.field.fieldName] == null && key != null) {
+               this.item[this.field.fieldName] = {key: null};
+            }
+            if (this.hasValue && key != null) {
+               let obj = this.item[this.field.fieldName];
+               if (obj[key] != null) {
+                  this.value = obj[key].value;
+               } else {
+                  let response = await restService.get(corePlugin, ['core', 'new', 'IsisLocalizedString'], null, true);
+                  response.codeiso = key;
+                  this.item[this.field.fieldName][key] = response;
+                  this.value = response.value;
+               }
+            }         
+          } catch(error) {
+            this.emitter.emit("inner-error-event", error);
+          }
+      }, async getKeys() {
+          let response = await restService.get(corePlugin, ['public', 'i18n', 'keys'], null, true);
+          this.keys.splice(0, this.keys.length);
+          this.keys.push(...response);  
+          if (this.keys.length > 0) {
+            await this.setLang(this.keys[0]);
+          }
+      }
+   }, computed: {
+      hasValue() {
+         return this.item != null && this.item[this.field.fieldName] != null;
+      }
+   }, watch: {
+      item(newVal) {
+         this.value = this.key != null && this.item[this.field.fieldName] != null && this.item[this.field.fieldName][this.key] != null ? this.item[this.field.fieldName][this.key].value:"";        
+      }
+   }, async mounted() {
+      try {
+        await this.getKeys();  
+      } catch(error) {
+         this.emitter.emit("inner-error-event", error);
+      }    
+   }
+})
+
+export default class NLocalizedTextField extends Vue {
+
+}
+
+</script>
+<style scoped lang="scss">
+   .localized {
+      display: flex;
+      flex-flow: row nowrap;
+   }
+</style>
