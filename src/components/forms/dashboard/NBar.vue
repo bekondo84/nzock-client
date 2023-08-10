@@ -1,5 +1,5 @@
 <template>
-    <bar-chart :chartData="barData" :options="options"></bar-chart>
+    <bar-chart :chartData="barData" :options="options" style="height: 400px;"></bar-chart>
 </template>
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';

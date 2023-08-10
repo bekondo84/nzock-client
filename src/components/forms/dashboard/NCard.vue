@@ -3,7 +3,7 @@
     <v-progress-linear v-if="loading == 'false'" :indeterminate="loading"></v-progress-linear>
     <div class="isis-card-header">
       <div class="isis-card-title">{{ value }}</div>
-      <div class="isis-card-title"><i :class="icon"></i></div>
+      <div class="isis-card-title"><i class="fa-solid fa-pen-to-square"></i></div>
     </div>
     <div class="isis-card-body">{{ label }}</div>
   </div>
@@ -62,29 +62,28 @@ export default class Card extends Vue {
 </script>
 <style scoped lang="scss">
 .isis-card {
-  width: 170px;
-  height: 75px;
+  width: 250px;
+  height: 90px;
   color: white;
   background: #07569B;
-  padding: 5px;
+  padding: 5px 10px;
+  text-align: center;
   font-family: 'Trebuchet MS', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   .isis-card-body {
     height: 35px;
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 
 .isis-card-header {
   display: flex;
-  flex-flow: row nowrap;
+  height: 40px;
   justify-content: space-between;
-  height: 35px;
-
-
   .isis-card-title {
-    font-size: 15px;
+    font-size: 20px;
     color: white;
+
   }
 }
 

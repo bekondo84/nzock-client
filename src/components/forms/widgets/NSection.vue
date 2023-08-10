@@ -2,7 +2,8 @@
   <div class="margin-top-20px">
     <div class="section-title" v-if="section.header">{{ section.title }}</div>
    <v-container v-if="isReady">
-      <v-row>
+      <v-row   
+      style="display: flex; width: 100%; margin-bottom: 1%; padding: 0%;">
         <v-col v-for="section in sections" :key="section.name"
           sm="true"
           align-self="start"
@@ -278,7 +279,6 @@ import {Options, Vue } from 'vue-class-component';
    }
    .margin-top-20px {
      margin-top: 20px;
-     width: 100%;
    }
    .section-title {
       font-family: 'Trebuchet MS','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

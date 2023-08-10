@@ -1,6 +1,5 @@
 <template>
-    <doughnut-chart :chartData="pieData"
-                   :options="options"></doughnut-chart>  
+    <doughnut-chart :chartData="pieData" :options="options" style=" max-height: 250px; height: 200px; min-height: 100px; "></doughnut-chart>
 </template>
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
@@ -12,28 +11,28 @@ Chart.register(...registerables);
 
 @Options({
     props: {
-       item: Object,
-    },  components: {
+        item: Object,
+    }, components: {
         DoughnutChart
-    }, data: function() {
+    }, data: function () {
         return {
-            pieData :  {
+            pieData: {
                 labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
                 datasets: [
                     {
-                    backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-                    data: [40, 20, 80, 10]
+                        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+                        data: [40, 20, 80, 10]
                     }
                 ]
-            },options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
+            }, options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 }
+            }
         }
     }
 })
@@ -41,5 +40,4 @@ export default class NDoughnut extends Vue {
 
 }
 </script>
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

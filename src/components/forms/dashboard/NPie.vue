@@ -1,6 +1,7 @@
 <template>
     <pie-chart :chartData="pieData"
-                   :options="options"></pie-chart>  
+                   :options="options"
+                   style=" max-height: 250px; height: 200px; min-height: 100px; "></pie-chart>  
 </template>
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';

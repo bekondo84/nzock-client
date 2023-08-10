@@ -135,7 +135,7 @@ export default class VMenusBar extends Vue {
 <style scoped lang="scss">  .menu-img-bg {
       background: #07569B;
       height: 100%;
-      padding: 3px;
+      padding: 2px;
   }
 
   .menu-nav-bar {
@@ -170,7 +170,7 @@ export default class VMenusBar extends Vue {
       -ms-transition: 0.2s linear;
       -o-transition: 0.2s linear;
       transition: 0.2s linear;
-      padding: 10px 15px;
+      padding: 5px 10px;
 
       span {
           margin-left: 10px;
@@ -195,13 +195,13 @@ export default class VMenusBar extends Vue {
 
   .menu-nav-bar ul li ul li a {
       cursor: pointer;
-      padding: 10px;
+      padding:  5px 10px;
       font-size: 15px;
   }
 
   .menu-nav-bar ul li ul li a:hover {
       cursor: pointer;
       border-radius: 5px;
-      padding: 10px;
+    
   }
 </style>

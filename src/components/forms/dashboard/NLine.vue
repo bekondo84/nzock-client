@@ -1,6 +1,7 @@
 <template>
-    <line-chart :chartData="lineData"
-                   :options="options">
+    <line-chart class="b" :chartData="lineData"
+                   :options="options"
+                   style="height: 400px;">
                 </line-chart>  
 </template>
 <script lang="ts">
