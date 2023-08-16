@@ -132,21 +132,20 @@ const restService = new RestService();
   .form-view {
     display: flex;
     flex-flow: column wrap;  
-    height: 100%;
+    height: auto;
     
     
     .form-body {
        // flex: 1;       
         height: auto;
         width: 100%;
-        overflow-y: auto;
     }
     .form-body-content {
         //border: solid 1px;
         display: flex;
         flex-flow: column wrap;
         width: 100%;
-        height: 100%;
+        height: auto;
         background: white;
     }
   }  

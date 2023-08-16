@@ -1,6 +1,6 @@
 <template>
-    <div class="card kaban-item" style="width: 15rem;" @dblclick="onClickEvent">
-        <div class="card-body" :id="id"></div>
+    <div class="card" @dblclick="onClickEvent">
+        <div class= "body" :id="id"></div>
     </div>   
   </template>
 <script lang="ts">
@@ -44,8 +44,13 @@ const domParser = new NDomParser();
   }
 </script>
 <style lang="scss">
-  .kaban-item {
-       margin: 0px 10px 10px 0px;
+  .card {
+    width: 200px; 
+    padding: 5px;
+    height: 80px; 
+    font-size: 15px; 
+    margin-left: 5px;
+    
   }
   div .card :hover {
     cursor: pointer;

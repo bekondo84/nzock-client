@@ -70,14 +70,7 @@ export default class NWorkflow extends Vue {
     color: rgb(17, 102, 17) !important;
 }
 
-.state {
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid white;
-    background-color: rgb(57, 8, 8);
-    padding: 0px 0px 3px 2px;
-}
+
 
 .btn {
     background: #Fff;
@@ -86,9 +79,8 @@ export default class NWorkflow extends Vue {
     font-size: 13px;
     font-family: 'Trebuchet MS', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    padding: 2px 1px;
+    padding: 5px 10px;
     margin-bottom: 10px;
-    width: 90px;
     justify-content: space-between;
 }
 
@@ -99,7 +91,7 @@ export default class NWorkflow extends Vue {
 }
 
 .btn-group {
-    width: 180px;
+    width: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
